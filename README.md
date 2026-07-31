@@ -15,7 +15,7 @@ An embedded iOS Simulator canvas for GitHub Copilot App. It provides live simula
 In GitHub Copilot App, paste this prompt:
 
 ```text
-Install the extension from https://github.com/cschleiden/ios-simulator-canvas/tree/main/.github/extensions/ios-simulator
+Install the extension from https://github.com/cschleiden/copilot-ios-simulator/tree/main/.github/extensions/ios-simulator
 ```
 
 When prompted, choose an installation scope:
@@ -31,9 +31,9 @@ The URL must point to the `ios-simulator` extension directory, not the repositor
 Clone this repository, then copy the extension into the target repository:
 
 ```sh
-git clone --depth 1 https://github.com/cschleiden/ios-simulator-canvas.git
+git clone --depth 1 https://github.com/cschleiden/copilot-ios-simulator.git
 mkdir -p <target-repository>/.github/extensions
-cp -R ios-simulator-canvas/.github/extensions/ios-simulator \
+cp -R copilot-ios-simulator/.github/extensions/ios-simulator \
   <target-repository>/.github/extensions/ios-simulator
 ```
 
