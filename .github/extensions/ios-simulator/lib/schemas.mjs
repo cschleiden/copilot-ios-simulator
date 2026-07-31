@@ -153,12 +153,7 @@ export const actionSchemas = {
         },
         required: ["udid", "leaseId", "mode"],
     },
-    captureScreen: {
-        type: "object",
-        additionalProperties: false,
-        properties: leaseFields,
-        required: ["udid", "leaseId"],
-    },
+    captureScreen: requiredUdid,
     startVideoRecording: {
         type: "object",
         additionalProperties: false,

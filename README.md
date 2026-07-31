@@ -43,7 +43,7 @@ Reload extensions in GitHub Copilot after copying it. No separate package or dep
 
 Ask GitHub Copilot to open the iOS Simulator. Choose an installed device from the dropdown, then use the canvas controls to interact with it, rotate it, change keyboard mode, configure stream quality, restart it, or shut it down.
 
-You can also ask Copilot to capture the screen or interact with the selected simulator. Agent control uses an exclusive, time-limited lease so it cannot conflict with manual input.
+You can also ask Copilot to capture the screen or interact with the selected simulator. Screenshots do not require control. Interactive agent actions use an exclusive, time-limited lease so they cannot conflict with manual input.
 
 ## Agent tools
 
@@ -58,7 +58,7 @@ The canvas provides these tools to GitHub Copilot:
 | `renew_control` | Renew an active control lease. |
 | `release_control` | Release an active control lease. |
 | `set_keyboard_mode` | Switch between hardware and software keyboard modes. |
-| `capture_screen` | Capture a PNG screenshot as a session artifact. |
+| `capture_screen` | Capture a PNG screenshot as a session artifact without acquiring control. |
 | `start_video_recording` | Start a lease-bound H.264 recording while agent input continues. |
 | `stop_video_recording` | Finalize an active recording as a QuickTime session artifact. |
 | `boot_device` | Boot a simulator and wait until it is ready. |
@@ -72,4 +72,4 @@ The canvas provides these tools to GitHub Copilot:
 | `send_text` | Send text input. |
 | `perform_inputs` | Run an ordered input sequence under one lease. |
 
-Tools that control or capture a simulator require a lease acquired with `acquire_control`.
+Tools that control a simulator require a lease acquired with `acquire_control`; `capture_screen` does not.

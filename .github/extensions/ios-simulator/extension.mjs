@@ -184,13 +184,6 @@ const leasedActions = [
         run: (ctx) => manager.setKeyboardMode(ctx.input.udid, ctx.input.mode),
     },
     {
-        name: "capture_screen",
-        description: "Capture a PNG screenshot and return artifact metadata and file path.",
-        inputSchema: actionSchemas.captureScreen,
-        operation: "Capturing screen",
-        run: (ctx) => manager.captureScreen(ctx.input.udid),
-    },
-    {
         name: "start_video_recording",
         description: "Start a lease-bound H.264 simulator recording and return immediately so inputs can continue.",
         inputSchema: actionSchemas.startVideoRecording,
@@ -303,6 +296,15 @@ const canvas = createCanvas({
             handler: async (ctx) =>
                 withCanvasError(async () => {
                     return await manager.getDeviceState(ctx.input.udid);
+                }),
+        },
+        {
+            name: "capture_screen",
+            description: "Capture a PNG screenshot without acquiring control and return artifact metadata and file path.",
+            inputSchema: actionSchemas.captureScreen,
+            handler: async (ctx) =>
+                withCanvasError(async () => {
+                    return await manager.captureScreen(ctx.input.udid);
                 }),
         },
         {
