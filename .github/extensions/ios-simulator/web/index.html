@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en" class="awaiting-initial-paint">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>iOS Simulator</title>
+        <style>
+            html.awaiting-initial-paint,
+            html.awaiting-initial-paint body {
+                background: transparent;
+            }
+
+            html.awaiting-initial-paint .shell {
+                visibility: hidden;
+            }
+        </style>
+        <link rel="stylesheet" href="./styles.css" />
+    </head>
+    <body>
+        <main class="shell">
+            <header class="toolbar">
+                <div class="left">
+                    <div class="device-picker" id="device-picker">
+                        <button
+                            id="device-picker-button"
+                            class="device-picker-button"
+                            type="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
+                            <span class="device-picker-copy">
+                                <strong id="device-name">Starting simulator…</strong>
+                            </span>
+                            <span class="device-picker-chevron" aria-hidden="true">⌄</span>
+                        </button>
+                        <div id="device-picker-menu" class="device-picker-menu hidden" role="dialog" aria-label="Simulator devices">
+                            <div id="device-picker-content" class="device-picker-content"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stream-actions">
+                    <label class="stream-control">
+                        <span>Codec</span>
+                        <select id="stream-codec" aria-label="Stream codec">
+                            <option value="mjpeg">MJPEG</option>
+                            <option value="h264" selected>H.264</option>
+                        </select>
+                    </label>
+                    <label class="stream-control">
+                        <span>FPS</span>
+                        <select id="stream-fps" aria-label="Stream frame rate">
+                            <option value="30">30</option>
+                            <option value="60" selected>60</option>
+                        </select>
+                    </label>
+                    <label class="stream-control">
+                        <span>Resolution</span>
+                        <select id="stream-resolution" aria-label="Stream resolution">
+                            <option value="100" selected>100%</option>
+                            <option value="50">50%</option>
+                            <option value="25">25%</option>
+                        </select>
+                    </label>
+                </div>
+            </header>
+
+            <section class="viewport-wrap">
+                <div id="viewport" class="viewport" tabindex="0" aria-label="Simulator viewport">
+                    <div class="device-stage">
+                        <div id="phone-frame" class="phone-frame portrait" aria-hidden="false">
+                            <div class="phone-side-button side-button left upper"></div>
+                            <div class="phone-side-button side-button left lower"></div>
+                            <div class="phone-side-button side-button right"></div>
+                            <div class="phone-bezel">
+                                <div class="screen-window">
+                                    <img
+                                        id="screen"
+                                        alt="Simulator screen"
+                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                    />
+                                    <canvas id="h264-screen" aria-label="Simulator screen video"></canvas>
+                                    <div id="screen-message" class="screen-message" role="status" aria-live="polite">
+                                        <span class="boot-logo" aria-hidden="true"></span>
+                                        <span class="boot-progress" aria-hidden="true"><span></span></span>
+                                        <div class="powered-off-content">
+                                            <strong id="powered-off-title">Simulator not booted</strong>
+                                            <button id="boot-simulator" type="button">Boot simulator</button>
+                                        </div>
+                                        <div class="screen-error-content">
+                                            <strong>Something went wrong</strong>
+                                            <span>We couldn’t display the simulator.</span>
+                                            <button id="retry-error" type="button">Retry</button>
+                                            <details>
+                                                <summary>Show details</summary>
+                                                <pre id="error-details"></pre>
+                                            </details>
+                                        </div>
+                                        <span id="screen-status" class="visually-hidden">Starting simulator</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="floating-toolbar" aria-label="Simulator controls">
+                            <button class="icon-button" type="button" data-action="home" data-icon="home" aria-label="Press Home" title="Press Home"></button>
+                            <span class="toolbar-separator" aria-hidden="true"></span>
+                            <button
+                                class="icon-button"
+                                type="button"
+                                data-action="rotate-right"
+                                data-icon="rotateRight"
+                                aria-label="Rotate right"
+                                title="Rotate right"
+                            ></button>
+                            <button
+                                id="keyboard-mode-button"
+                                class="icon-button keyboard-mode-button"
+                                type="button"
+                                data-action="keyboard-mode"
+                                data-icon="keyboard"
+                                aria-label="Hardware keyboard on. Click to use software keyboard."
+                                aria-pressed="true"
+                                title="Hardware keyboard on. Click to use software keyboard."
+                            ></button>
+                            <span class="toolbar-separator" aria-hidden="true"></span>
+                            <button
+                                class="icon-button danger"
+                                type="button"
+                                data-action="shutdown"
+                                data-icon="shutdown"
+                                aria-label="Shut down simulator"
+                                title="Shut down simulator"
+                            ></button>
+                        </div>
+                    </div>
+                    <div id="overlay" class="overlay hidden" role="status" aria-live="polite">
+                        <div class="overlay-card">
+                            <span class="overlay-title">Agent control</span>
+                            <span id="overlay-operation" class="overlay-text"></span>
+                            <span id="overlay-expiry" class="overlay-text"></span>
+                            <span id="overlay-reason" class="visually-hidden"></span>
+                            <button id="take-back" type="button">Take back control</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        <script type="module" src="./app.js"></script>
+    </body>
+</html>
