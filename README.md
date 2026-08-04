@@ -2,6 +2,8 @@
 
 An embedded iOS Simulator canvas for GitHub Copilot App. It provides live simulator video, device selection and lifecycle controls, touch and keyboard input, rotation, screenshots, configurable streaming, and safe agent-control leasing.
 
+![iOS Simulator canvas running an app in GitHub Copilot](docs/images/ios-simulator-canvas.png)
+
 ## Requirements
 
 - macOS 15 or later
