@@ -12,7 +12,23 @@ An embedded iOS Simulator canvas for GitHub Copilot App. It provides live simula
 
 ## Installation
 
-### Install from GitHub (recommended)
+### Install from the plugin marketplace (recommended)
+
+In GitHub Copilot App, open **Plugins**, select **Install > Add marketplace**,
+enter `cschleiden/copilot-ios-simulator`, and choose **Add marketplace**. Find
+**ios-simulator** in the marketplace and select **Install**.
+
+You can also install it from the Copilot CLI:
+
+```text
+/plugin marketplace add cschleiden/copilot-ios-simulator
+/plugin install ios-simulator
+```
+
+Reload GitHub Copilot after installation, then open the **iOS Simulator**
+canvas and select a device. The Swift bridge builds automatically on first use.
+
+### Install directly from GitHub
 
 In GitHub Copilot App, paste this prompt:
 

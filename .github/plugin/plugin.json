@@ -1,0 +1,20 @@
+{
+  "name": "ios-simulator",
+  "description": "View and interact with local iOS Simulators in a GitHub Copilot canvas.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Christopher Schleiden",
+    "url": "https://github.com/cschleiden"
+  },
+  "repository": "https://github.com/cschleiden/copilot-ios-simulator",
+  "license": "MIT",
+  "keywords": [
+    "ios",
+    "simulator",
+    "copilot-canvas",
+    "canvas",
+    "device-control"
+  ],
+  "logo": "docs/images/ios-simulator-canvas.png",
+  "extensions": "extensions"
+}
