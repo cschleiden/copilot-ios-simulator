@@ -14,9 +14,18 @@ An embedded iOS Simulator canvas for GitHub Copilot App. It provides live simula
 
 ### Install from the plugin marketplace (recommended)
 
-In GitHub Copilot App, open **Plugins**, select **Install > Add marketplace**,
-enter `cschleiden/copilot-ios-simulator`, and choose **Add marketplace**. Find
-**ios-simulator** in the marketplace and select **Install**.
+1. Open **Plugins**, select **Install**, and choose **Add marketplace**.
+
+   ![Add a plugin marketplace in GitHub Copilot](docs/images/install-1.png)
+
+2. Enter `cschleiden/copilot-ios-simulator` and choose **Add marketplace**.
+
+   ![Enter the iOS Simulator marketplace repository](docs/images/install-2.png)
+
+3. Expand **copilot-ios-simulator** and select **Install** for
+   **ios-simulator**.
+
+   ![Install the iOS Simulator plugin](docs/images/install-3.png)
 
 You can also install it from the Copilot CLI:
 
